@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="i.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+      <style>
+        .img{
+          background-image: index.jpeg;
+          margin-left: 200px;
+          margin-top: 200px;
+          }
+      </style>
+</head>
+<body>
+  <div class="img">
+    <h3 style="color:blue;">Upload your image here</h3>
+
+    <form id="form1" runat="server">
+      <input type='file' id="imgInp" />
+      <img id="blah"/>
+    </form>
+
+
+<script>
+function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+</script>
+</div>
+</body>
+</html>
